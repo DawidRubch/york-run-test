@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <SideBar></SideBar>
+        {children}
+      </body>
     </html>
   );
 }
+
+const SideBar = () => {
+  return (
+    <aside className="w-1/5 bg-yellow-400 ">
+      <ul>
+        <li>
+          <Link href="/screen1">Screen 1</Link>
+        </li>
+        <li>
+          <Link href="/screen2">Screen 2</Link>
+        </li>
+        <li>
+          <Link href="/screen3">Screen 3</Link>
+        </li>
+      </ul>
+    </aside>
+  );
+};
